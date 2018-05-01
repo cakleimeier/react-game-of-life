@@ -94,7 +94,7 @@ class Controls extends Component {
           title="Game of Life"
           iconElementLeft={
             <FlatButton
-              style={{color: "#fff"}}
+              style={{color: "#fff", "margin": "7px 0 0"}}
               icon={<Info />}
             />
           }
