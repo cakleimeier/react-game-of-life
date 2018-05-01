@@ -106,6 +106,7 @@ class Controls extends Component {
           onRightIconButtonClick={this.handleToggle}
           onLeftIconButtonClick={this.handleModal}
           style={barStyle}
+          titleStyle={{"fontSize":"20px"}}
         />
 
         <Dialog
