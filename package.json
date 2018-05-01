@@ -2,6 +2,7 @@
   "name": "react-game-of-life",
   "version": "0.1.0",
   "private": true,
+  "homepage" : "https://react-game-of-life.herokuapp.com/",
   "dependencies": {
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
