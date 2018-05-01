@@ -531,7 +531,7 @@ class BoardContainer extends Component {
               label="See on Github"
               style={buttonStyle}
               hoverColor="rgba(153,153,153,.5)"
-              onClick={()=> window.open("https://github.com/cakleimeier/life", "_blank")}
+              onClick={()=> window.open("https://github.com/cakleimeier/react-game-of-life", "_blank")}
             />
           </div>
         </footer>
