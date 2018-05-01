@@ -12,6 +12,7 @@ import IconButton from 'material-ui/IconButton';
 import Drawer from 'material-ui/Drawer';
 import Divider from 'material-ui/Divider';
 import {List, ListItem} from 'material-ui/List';
+import Dialog from 'material-ui/Dialog';
 
 // icons
 import Add from '@material-ui/icons/Add';
@@ -21,6 +22,7 @@ import Pause from '@material-ui/icons/Pause';
 import Refresh from '@material-ui/icons/Refresh';
 import Clear from '@material-ui/icons/Clear';
 import Settings from '@material-ui/icons/Settings';
+import Info from '@material-ui/icons/Info';
 
 
 
@@ -29,13 +31,18 @@ class Controls extends Component {
     super(props);
     this.state = {
       open: false,
+      modalOpen: false
     };
   }
 
   // Component Functions
-    handleToggle = () => this.setState({open: !this.state.open});
+    handleToggle  = () => this.setState({open: !this.state.open});
 
-    handleClose = () => this.setState({open: false});
+    handleClose   = () => this.setState({open: false});
+
+    handleModal   = () => this.setState({modalOpen: !this.state.modalOpen});
+
+    closeModal    = () => this.setState({modalOpen: false});
 
   render() {
     // Styles
@@ -72,21 +79,48 @@ class Controls extends Component {
       // Determine wheather a size button is disabled
         let disableSmaller  = this.props.size <= 30 ? true : false;
         let disableLarger   = this.props.size >= 90 ? true : false;
+      let actions = [
+        <FlatButton
+          label="Okay"
+          secondary={true}
+          keyboardFocused={true}
+          onClick={this.closeModal}
+        />
+      ];
 
     return (
       <section id="controls">
         <AppBar
           title="Game of Life"
+          iconElementLeft={
+            <FlatButton
+              style={{color: "#fff"}}
+              icon={<Info />}
+            />
+          }
           iconElementRight={
             <FlatButton
               icon={<Settings />}
             />
-
           }
-          showMenuIconButton={false}
           onRightIconButtonClick={this.handleToggle}
+          onLeftIconButtonClick={this.handleModal}
           style={barStyle}
         />
+
+        <Dialog
+          actions={actions}
+          modal={false}
+          open={this.state.modalOpen}
+          onRequestClose={this.closeModal}
+          autoScrollBodyContent={true}
+        >
+          <p>This is a version of <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life" rel="noopener noreferrer"  target="_blank">Conway’s Game of Life</a> built on React.js.</p>
+          <p><strong>Speed</strong> increases or decreases the pace of the game.</p>
+          <p><strong>Cells</strong> increases or decreases the number of cells on the board.</p>
+          <p>The color of a cell changes with age, going from bright green to pale yellow after about 100 rounds of life.</p>
+          <p>Click on any space on the board to add or delete a cell. For examples of interesting patterns, see <a href="http://www.radicaleye.com/lifepage/picgloss/picgloss.html" rel="noopener noreferrer"  target="_blank">this list</a>.</p>
+        </Dialog>
 
         <Drawer
           docked={false}

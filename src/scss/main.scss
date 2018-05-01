@@ -110,6 +110,15 @@ body {
   	grid-template-rows: [row1-start] 120px [row1-end row2-start] 1fr [row2-end row3-start] 50px [row3-end];
 }
 
+a {
+	color: $accentBlue;
+	text-decoration: none;
+
+	&:visited {
+		color: $accentBlue;
+	}
+}
+
 
 @media (min-width: 10em) {
     .row { width: 100%; display: table; table-layout: fixed; }
