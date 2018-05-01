@@ -1,0 +1,86 @@
+$darkGrey: #424242;
+$accentBlue: #0288D1;
+$lightBrightGreen: #1DE9B6;
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+#controls {
+	height: 120px;
+}
+
+#board {
+	background-color: $darkGrey;
+	display: grid;
+	user-select: none;
+	&.small {
+		// 30 columns, 30 rows
+		grid-template-rows: repeat(30, 1fr);
+	}
+
+	&.medium {
+		// 60 columns, 60 rows
+		grid-template-rows: repeat(60, 1fr);
+	}
+
+	&.large {
+		// 90 columns, 90 rows
+		grid-template-rows: repeat(90, 1fr);
+	}
+
+	.row {
+		margin: 0;
+		padding: 0;
+
+		.col {
+			border-radius: 100%;
+			cursor: pointer;
+
+			&.alive {
+				background-color: $lightBrightGreen;
+			}
+
+			&.dead {
+				background-color: $darkGrey;
+			}
+		}
+	}
+}
+
+#footer {
+	height: 50px;
+	width: 100%;
+
+	background-color: rgb(189, 189, 189);
+
+	h3 {
+		color: #fff;
+		font-size: 14px;
+		text-align: center;
+
+		a {
+			color: $accentBlue;
+			text-decoration: none;
+
+			&::visited {
+				color: $accentBlue;
+			}
+		}
+	}
+}
+
+.App {
+	display: grid;
+  	height: 100vh;
+  	grid-template-columns: 100%;
+  	grid-template-rows: [row1-start] 120px [row1-end row2-start] 1fr [row2-end row3-start] 50px [row3-end];
+}
+
+
+@media (min-width: 10em) {
+    .row { width: 100%; display: table; table-layout: fixed; }
+    .col { display: table-cell; }
+}
