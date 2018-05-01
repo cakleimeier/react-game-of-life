@@ -563,7 +563,7 @@ class BoardContainer extends Component {
 
           <div className="col" style={{textAlign: "center"}}>
             <FlatButton
-              label="See on Github"
+              label="View on Github"
               style={buttonStyle}
               hoverColor="rgba(153,153,153,.5)"
               onClick={()=> window.open("https://github.com/cakleimeier/react-game-of-life", "_blank")}
